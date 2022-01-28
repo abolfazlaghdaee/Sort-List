@@ -6,7 +6,6 @@ sorting a list by choosen method.
 '''
 at first you sould add  `src`  to your python local
 '''
-
 '''
 then ran `python/src/main.py`
 '''

@@ -1,7 +1,7 @@
 
 
 import time
-from datetime import timedelta
+from datetime import tiemdelta
 
 
 
@@ -18,7 +18,7 @@ class Sorting_list:         #this is the main class for some method that we need
 
     
     #######################################Insertion Sort #############################################
-    start_time = time.monotonic()
+    start = time.time()
     def insertionSort(self):      ## this is the first method that sort our list by insertion sort 
 
       insert_list =  self.list.copy()  # make a copy form main list
@@ -41,8 +41,8 @@ class Sorting_list:         #this is the main class for some method that we need
      
       #return 
       return insert_list
-    end_time = time.monotonic()
-    InsertionTime = (end_time-start_time)  
+    end = time.time()
+    InsertionTime = (end-start)  
     TimeList.setdefault("Insertion time is",InsertionTime)
     
     #####################################end of insertion sort#########################################
@@ -53,7 +53,7 @@ class Sorting_list:         #this is the main class for some method that we need
 
 
     #########################################Selection Sort#####################################
-    start_time = time.monotonic()
+    start = time.time()
     def SelectionSort(self):  #this method retrun a sorted list by selection sort
       select_list = self.list.copy()
 
@@ -70,8 +70,8 @@ class Sorting_list:         #this is the main class for some method that we need
             select_list[i] , select_list[key]  = select_list[key], select_list[i]
 
       return select_list
-    end_time = time.monotonic()
-    SelectTime = (end_time-start_time)  
+    end = time.time()
+    SelectTime = (end-start)  
     TimeList.setdefault('SelectTime is:',SelectTime)
     #####################################end of Selection sort#########################################
 
@@ -82,7 +82,7 @@ class Sorting_list:         #this is the main class for some method that we need
 
 
     ########################################Quikc Sort#######################################
-    start_time = time.monotonic() 
+    start = time.time() 
     def Quicksort(self,Quick_list):  #SO because this method is a recurasive method (بازگشتی )we need to get Quick_lsit fro an argument 
       
     
@@ -113,8 +113,8 @@ class Sorting_list:         #this is the main class for some method that we need
               first.append(Quick_list[i])   # append to the first element
 
               return first+second
-    end_time = time.monotonic()
-    QuickTime = (end_time-start_time)  
+    end = time.time()
+    QuickTime = (end-start)  
     TimeList.setdefault("Quick time",QuickTime)
     #######################################end of Quick Sort###################################
 
@@ -125,18 +125,18 @@ class Sorting_list:         #this is the main class for some method that we need
 
 
     ########################################insertion sort#########################################
-    start_time = time.monotonic() 
+    start = time.time() 
     def mergsort(self,merg_list ):           #I defined two method  Mergsot is for   deviding list to the small parts  
         merg_list_size = len(merg_list)
 
 
-        split = int(merg_list_size/2)
+        split = int(merg_list_size/2)       #convert the list to the two lists by center and dovode 2
         left = merg_list[0:split]
         right = merg_list[split:]
 
 
         if merg_list_size > 1:
-            return self.merge(self.mergsort(left),self.mergsort(right) )
+            return self.merge(self.mergsort(left),self.mergsort(right) )   # divide to teh smallest lists
         else:
             return merg_list
 
@@ -157,8 +157,8 @@ class Sorting_list:         #this is the main class for some method that we need
         else:
             return [y[j]] + self.merge(x, y[1:])
             
-    end_time = time.monotonic()
-    MergTime = (end_time-start_time)  
+    end = time.time()
+    MergTime = (end-start)  
     TimeList.setdefault('MergTime is :', MergTime)
     #####################################end of Merg sort#########################################
 
@@ -170,7 +170,7 @@ class Sorting_list:         #this is the main class for some method that we need
 
 
     ##################################### Heap sort###############################################
-    start_time = time.monotonic()   
+    start = time.time()   
     def move(self,heap_list,n,i):      # in these two method we get list and sort by binary tree and with move method and heapsort methodwe move biggest elements to the top level(maxheap)
         left = 2*i+1
         right = 2*i+2
@@ -199,8 +199,8 @@ class Sorting_list:         #this is the main class for some method that we need
             self.move(heap_list, i, 0)      #  we call move for getting heap and elelments for moveing first
     
         return heap_list
-    end_time = time.monotonic()
-    HeapTime = (end_time-start_time)  
+    end = time.time()
+    HeapTime = (end-start)  
     TimeList.setdefault('HeapTime is :', HeapTime)    
     #####################################end of Heap sort#########################################
     
@@ -209,7 +209,7 @@ class Sorting_list:         #this is the main class for some method that we need
 
 
     #################################### Heap sort#################################################
-    start_time = time.monotonic()
+    start = time.time()
     def Shell_Sort(self,shell_list):
         a= len(shell_list)
 
@@ -231,8 +231,8 @@ class Sorting_list:         #this is the main class for some method that we need
             efraz = int(efraz/2)  # then we change efraz to the small efraz
 
             return shell_list
-    end_time = time.monotonic()
-    ShellTime = (end_time -start_time)  
+    end = time.time()
+    ShellTime = (end -start)  
     TimeList.setdefault("Shell Time is:",ShellTime)   
     #####################################end of Shell sort#########################################
 
@@ -243,7 +243,7 @@ print("Done!")
 
 #####################################BST sort#########################################
 
-start_time = time.monotonic()
+start = time.time()
 class Node(Sorting_list):
     def __init__(self, key):
         self.key = key           #in this part of Node class we define some variables for save elements by bstree
@@ -285,10 +285,10 @@ class BSTree(Sorting_list):       #we define this class for using method those a
         if self.root is None:
             self.root = new_node
         else:
-            self.root.insert(new_node)
+            self.root.insert(new_node)  # add node to the bst
  
-end_time = time.monotonic()
-BSTTime = (end_time- start_time)  
+end = time.time()
+BSTTime = (end- start)  
 TimeList.setdefault('BSTTime',BSTTime) 
 #####################################end of BST sort#########################################
 
@@ -348,8 +348,8 @@ print(f'the list sorted by shell sort is: \n{p.Shell_Sort(test_case)}')
 
 #Bst sort
 se =[]
-bstree = BSTree()
-for x in test_case:
+bstree = BSTree()   #for sorting by bst we need to define bstree and then create it 
+for x in test_case:       
     bstree.add(x)
 print(f'the list sorted by BST sort is:')
 print(se.append(bstree.inorder()))
@@ -359,10 +359,10 @@ print(se.append(bstree.inorder()))
 
 print('\n\n')
 TimeList2= {}
-sort_Timelist = sorted(TimeList, key =TimeList.get)
+sort_Timelist = sorted(TimeList, key =TimeList.get)   # if we want to get time by micro seconds we should wright timedelta()
 
 for i in sort_Timelist:
     TimeList2[i] = TimeList[i]
 
 for a, b in TimeList2.items():
-    print(a,b )
+    print(f"{a}, {b}" )

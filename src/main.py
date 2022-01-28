@@ -3,7 +3,7 @@
 import time
 from datetime import timedelta
 
-from numpy import sort
+
 
 TimeList ={}
 
@@ -299,18 +299,18 @@ TimeList.setdefault('BSTTime',BSTTime)
     
  
 # in this part of code we import length of list and then get elements of our list
-# test_case_length = int(input('please enter Length of your list: '))
-# test_case = []
-# for i in range(test_case_length):
-#     a= input("please enter elements: ")
-#     test_case.append(float(a))
-#     print(f'your list is {test_case} ')
+test_case_length = int(input('please enter Length of your list: '))
+test_case = []
+for i in range(test_case_length):
+    a= input("please enter elements: ")
+    test_case.append(float(a))
+    print(f'your list is {test_case} ')
 
 
 
 
 
-test_case = list(range(0,50)) +list(range(-50,3))
+
 
 # getting list to the main class    
 p = Sorting_list(test_case)

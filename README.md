@@ -10,5 +10,5 @@ then ran:
 
  `python/src/main.py`
 
-so now you can see sorted lists and time of running each mehtod.
+so now you can see sorted lists and time running of each mehtod.
 

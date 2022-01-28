@@ -359,7 +359,7 @@ print(se.append(bstree.inorder()))
 
 print('\n\n')
 TimeList2= {}
-sort_Timelist = sorted(TimeList, key =TimeList.get)   # if we want to get time by micro seconds we should wright timedelta()
+sort_Timelist = sorted(TimeList, key =TimeList.get)   # if we want to get time by micro seconds we should write timedelta()
 
 for i in sort_Timelist:
     TimeList2[i] = TimeList[i]

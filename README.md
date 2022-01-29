@@ -4,7 +4,7 @@ sorting a list by choosen method.
 
 ## How to Run project
 
-at first you sould add  `src`  to your python local
+at first you sould add  `src`  to your local python 
 
 then ran:
 

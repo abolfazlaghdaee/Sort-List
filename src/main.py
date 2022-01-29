@@ -1,7 +1,8 @@
 
 
+from audioop import reverse
 import time
-from datetime import tiemdelta
+from datetime import timedelta
 
 
 
@@ -246,28 +247,28 @@ print("Done!")
 start = time.time()
 class Node(Sorting_list):
     def __init__(self, key):
+        self.valed = None      #define valed for save main node of node in each level
         self.key = key           #in this part of Node class we define some variables for save elements by bstree
+        self.right = None            #define Rchild and Lchild of each valed 
         self.left = None
-        self.right = None
-        self.parent = None
  
     def insert(self, node):
         if self.key > node.key:            # if argument is smaller than node we put in left or if the bigger than node we put in the right of node
             if self.left is None:
-                self.left = node
-                node.parent = self
+                node.valed = self
+                self.left = node             #putting elements in correct places
             else:
                 self.left.insert(node)
         elif self.key <= node.key:           #if  bigger than node we put in the right of node
             if self.right is None:
-                self.right = node
-                node.parent = self
+                node.valed = self
+                self.right = node          #putting elements in correct places
             else:
                 self.right.insert(node)
  
     def inorder(self):                        
         if self.left is not None:
-            self.left.inorder()
+            self.left.inorder()              #travel teh chiil and valed 
         print(self.key, end=' ')
         if self.right is not None:
             self.right.inorder()
@@ -299,17 +300,19 @@ TimeList.setdefault('BSTTime',BSTTime)
     
  
 # in this part of code we import length of list and then get elements of our list
-test_case_length = int(input('please enter Length of your list: '))
-test_case = []
-for i in range(test_case_length):
-    a= input("please enter elements: ")
-    test_case.append(float(a))
-    print(f'your list is {test_case} ')
+# test_case_length = int(input('please enter Length of your list: '))
+# test_case = []
+# for i in range(test_case_length):
+#     a= input("please enter elements: ")
+#     test_case.append(float(a))
+#     print(f'your list is {test_case} ')
 
 
+#template test case is:
+test_case = list(range(-250,250))
+test_case.reverse()
 
-
-
+print(test_case)
 
 
 # getting list to the main class    
@@ -365,4 +368,4 @@ for i in sort_Timelist:
     TimeList2[i] = TimeList[i]
 
 for a, b in TimeList2.items():
-    print(f"{a}, {b}" )
+    print(f"{a}: {b}" )

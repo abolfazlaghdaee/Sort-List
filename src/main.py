@@ -1,6 +1,6 @@
 
 
-from audioop import reverse
+
 import time
 from datetime import timedelta
 
@@ -24,20 +24,20 @@ class Sorting_list:         #this is the main class for some method that we need
 
       insert_list =  self.list.copy()  # make a copy form main list
       
-      
+      n = len(insert_list)
 
-      for i in range(1, len(insert_list)): # travel from the second element to the end of our list 
+      for i in range(1, n): # travel from the second element to the end of our list 
         j = i-1
 
-        key = insert_list[i]     #put second element to key variable and in the next line compaer with preivous element of list
+        x = insert_list[i]     #put second element to key variable and in the next line compaer with preivous element of list
         
-        while insert_list[j] > key  and j>=0:
+        while insert_list[j] >x  and j>=0:
             insert_list[j+1]=insert_list[j]
 
-            j -=1
+            j = j- 1
 
 
-        insert_list[j+1] =key 
+        insert_list[j+1]=x 
       
      
       #return 
@@ -57,12 +57,14 @@ class Sorting_list:         #this is the main class for some method that we need
     start = time.time()
     def SelectionSort(self):  #this method retrun a sorted list by selection sort
       select_list = self.list.copy()
+      n = len(select_list)
 
-      for i in range(len(select_list)):
+    
+      for i in range(n):
         key = i
         
 
-        for j in range(i+1, len(select_list)):
+        for j in range(i+1, n):
           if select_list[key] > select_list[j]:
                key = j
 
@@ -82,7 +84,7 @@ class Sorting_list:         #this is the main class for some method that we need
 
 
 
-    ########################################Quikc Sort#######################################
+    ########################################Quick Sort#######################################
     start = time.time() 
     def Quicksort(self,Quick_list):  #SO because this method is a recurasive method (بازگشتی )we need to get Quick_lsit fro an argument 
       
@@ -97,7 +99,7 @@ class Sorting_list:         #this is the main class for some method that we need
 
                       Quick_list[j+1],Quick_list[i+1] = Quick_list[i+1], Quick_list[j+1]
 
-                      i +=1
+                      i = i+1
 
 
 
@@ -108,6 +110,7 @@ class Sorting_list:         #this is the main class for some method that we need
 
 
               first= self.Quicksort(Quick_list[:i])
+
               second= self.Quicksort(Quick_list[i+1:])
 
 
@@ -133,6 +136,7 @@ class Sorting_list:         #this is the main class for some method that we need
 
         split = int(merg_list_size/2)       #convert the list to the two lists by center and dovode 2
         left = merg_list[0:split]
+
         right = merg_list[split:]
 
 
@@ -144,19 +148,19 @@ class Sorting_list:         #this is the main class for some method that we need
     def merge(self,x,y):        # and the scound method is merg  for comparing elements and put these to the best place
 
         if len(x) == 0:
-            return y
+             return y
 
         if len(y) == 0:
-            return x
+             return x
 
 
-        i = 0
+        i = j=0
 
-        j = 0
+        
         if x[i] <= y[j]:
-            return [x[i]] + self.merge(x[1:], y)
+            return [x[i]]+self.merge(x[1:], y)
         else:
-            return [y[j]] + self.merge(x, y[1:])
+            return [y[j]] +self.merge(x, y[1:])
             
     end = time.time()
     MergTime = (end-start)  
@@ -173,19 +177,19 @@ class Sorting_list:         #this is the main class for some method that we need
     ##################################### Heap sort###############################################
     start = time.time()   
     def move(self,heap_list,n,i):      # in these two method we get list and sort by binary tree and with move method and heapsort methodwe move biggest elements to the top level(maxheap)
-        left = 2*i+1
+        left = 2*i+1 
         right = 2*i+2
         
-        if left <n and heap_list[left] > heap_list[i]:
+        if left<n and heap_list[left]> heap_list[i]:
             max = left
         else:
             max = i
             
-        if right < n and heap_list[right] > heap_list[max]:
+        if right <n and heap_list[right]>heap_list[max]:
             max = right
             
         if max != i:
-            heap_list[i], heap_list[max] = heap_list[max], heap_list[i]    #swapping elements with max 
+            heap_list[i] ,heap_list[max] =heap_list[max] ,heap_list[i]    #swapping elements with max 
             self.move(heap_list, n, max)
     
 
@@ -193,7 +197,7 @@ class Sorting_list:         #this is the main class for some method that we need
         n = len(heap_list)
         
         for i in range(int(n),-1,-1 ):
-            self.move(heap_list, n, i)
+            self.move(heap_list,n,i)
             
         for i in range(n-1,0,-1):
             heap_list[0] ,heap_list[i] = heap_list[i], heap_list[0]
@@ -216,18 +220,18 @@ class Sorting_list:         #this is the main class for some method that we need
 
         efraz = int(a/2)           # in this code we put the center element to the efraz 
         while efraz > 0:
-            for i in range(efraz, a):   #then we travel from cneter element to the end
-                key =  shell_list[i]     #put elements to key for compare
-                j = i
+            for i in range(efraz,a):   #then we travel from cneter element to the end
+                key =shell_list[i]     #put elements to key for compare
+                j =i
               
                 while j >=efraz and shell_list[j-efraz] > key:
                       # we compare efraz's and perivous elements
-                    shell_list[j] = shell_list[j-efraz]
+                    shell_list[j] =shell_list[j-efraz]
 
 
                     j -= efraz
 
-                shell_list[j] = key
+                shell_list[j]=key
 
             efraz = int(efraz/2)  # then we change efraz to the small efraz
 
@@ -268,7 +272,7 @@ class Node(Sorting_list):
  
     def inorder(self):                        
         if self.left is not None:
-            self.left.inorder()              #travel teh chiil and valed 
+            self.left.inorder()              #travel teh child and valed 
         print(self.key, end=' ')
         if self.right is not None:
             self.right.inorder()

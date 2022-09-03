@@ -11,14 +11,7 @@ TimeList ={}
 class Sorting_list:         #this is the main class for some method that we need for this project
     def __init__(self, list):   
         self.list = list   #define list 
-        
-        
-
-
-
-
-    
-    #######################################Insertion Sort #############################################
+   
     start = time.time()
     def insertionSort(self):      ## this is the first method that sort our list by insertion sort 
 
@@ -46,14 +39,7 @@ class Sorting_list:         #this is the main class for some method that we need
     InsertionTime = (end-start)  
     TimeList.setdefault("Insertion time is",InsertionTime)
     
-    #####################################end of insertion sort#########################################
-
-
-
-
-
-
-    #########################################Selection Sort#####################################
+  
     start = time.time()
     def SelectionSort(self):  #this method retrun a sorted list by selection sort
       select_list = self.list.copy()
@@ -76,15 +62,7 @@ class Sorting_list:         #this is the main class for some method that we need
     end = time.time()
     SelectTime = (end-start)  
     TimeList.setdefault('SelectTime is:',SelectTime)
-    #####################################end of Selection sort#########################################
-
-
-
-
-
-
-
-    ########################################Quick Sort#######################################
+ 
     start = time.time() 
     def Quicksort(self,Quick_list):  #SO because this method is a recurasive method (بازگشتی )we need to get Quick_lsit fro an argument 
       
@@ -120,15 +98,7 @@ class Sorting_list:         #this is the main class for some method that we need
     end = time.time()
     QuickTime = (end-start)  
     TimeList.setdefault("Quick time",QuickTime)
-    #######################################end of Quick Sort###################################
-
-
-
-
-
-
-
-    ########################################insertion sort#########################################
+   
     start = time.time() 
     def mergsort(self,merg_list ):           #I defined two method  Mergsot is for   deviding list to the small parts  
         merg_list_size = len(merg_list)
@@ -165,16 +135,7 @@ class Sorting_list:         #this is the main class for some method that we need
     end = time.time()
     MergTime = (end-start)  
     TimeList.setdefault('MergTime is :', MergTime)
-    #####################################end of Merg sort#########################################
-
-
-
-
-
-
-
-
-    ##################################### Heap sort###############################################
+ 
     start = time.time()   
     def move(self,heap_list,n,i):      # in these two method we get list and sort by binary tree and with move method and heapsort methodwe move biggest elements to the top level(maxheap)
         left = 2*i+1 
@@ -207,13 +168,7 @@ class Sorting_list:         #this is the main class for some method that we need
     end = time.time()
     HeapTime = (end-start)  
     TimeList.setdefault('HeapTime is :', HeapTime)    
-    #####################################end of Heap sort#########################################
-    
-
-
-
-
-    #################################### Heap sort#################################################
+   
     start = time.time()
     def Shell_Sort(self,shell_list):
         a= len(shell_list)
@@ -239,14 +194,10 @@ class Sorting_list:         #this is the main class for some method that we need
     end = time.time()
     ShellTime = (end -start)  
     TimeList.setdefault("Shell Time is:",ShellTime)   
-    #####################################end of Shell sort#########################################
-
+   
 print("Done!")
    
 
-
-
-#####################################BST sort#########################################
 
 start = time.time()
 class Node(Sorting_list):
@@ -295,24 +246,7 @@ class BSTree(Sorting_list):       #we define this class for using method those a
 end = time.time()
 BSTTime = (end- start)  
 TimeList.setdefault('BSTTime',BSTTime) 
-#####################################end of BST sort#########################################
 
-####################################end of main class##########################################
-        
-    
-    
-    
- 
-# in this part of code we import length of list and then get elements of our list
-# test_case_length = int(input('please enter Length of your list: '))
-# test_case = []
-# for i in range(test_case_length):
-#     a= input("please enter elements: ")
-#     test_case.append(float(a))
-#     print(f'your list is {test_case} ')
-
-
-#template test case is:
 test_case = list(range(-250,250))
 test_case.reverse()
 
